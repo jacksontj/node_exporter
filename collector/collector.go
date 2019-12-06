@@ -70,6 +70,10 @@ func registerCollector(collector string, isDefaultEnabled bool, factory func() (
 	factories[collector] = factory
 }
 
+func CollectorState() map[string]*bool {
+	return collectorState
+}
+
 // NodeCollector implements the prometheus.Collector interface.
 type NodeCollector struct {
 	Collectors map[string]Collector
